@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import classes from "./Slider.module.scss"; 
 import Card from "../Card/Card";
 import DataContext from '../../_store/data-context'; 
+import Spinner from '../../UI/spinner/Spinner';
 
 function Slider(props) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,10 +23,8 @@ function Slider(props) {
   return (
     <div className={classes.slider}>
 
-
-      {/* <Card card={props.cards[currentSlide]} /> */}
       {catsDataCtx.loading && (
-        <p>Loading...</p>
+        <div className={classes.slider__spinner}><Spinner/></div>
       )}
 
       {!catsDataCtx.loading && (

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-// import { fetchCities } from '../_lib/api';
+import { THE_CAT_API } from '../constants/constants';
 
 const DataContext = React.createContext({
   catsData: [],
   totalCatsData: 0,
   loading: false,
-  addCats: (newCat) => {},
-  removeCats: (id) => {},
-  updateCat: (id) => {}, 
+  // addCats: (newCat) => {},
+  // removeCats: (id) => {},
+  // updateCat: (id) => {}, 
 });
 
 export const DataContextProvider = (props) => {
@@ -20,7 +20,7 @@ export const DataContextProvider = (props) => {
 
     const fetchCatsData = async () => {
         try {
-          const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+          const response = await fetch(THE_CAT_API);
           if (!response.ok) {
             throw new Error("Cats not found");
           }
