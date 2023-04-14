@@ -1,7 +1,11 @@
 import classes from './App.module.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Slider from "./components/Slider/Slider";
 import Layout from "./layout/Layout";
+
+// import { useContext } from 'react';
+import DataContext from './_store/data-context'; 
+
 
 const DATA = [
   {id: '9o', url: 'https://cdn2.thecatapi.com/images/9o.gif', width: 179, height: 176},
@@ -19,6 +23,9 @@ const DATA = [
 function App() {
   // const [catCards, setCatCards] = useState([]);
   const [catCards, setCatCards] = useState(DATA);
+  const catsDataCtx = useContext(DataContext); 
+
+  console.log(catsDataCtx.catsData);
 
   // useEffect(() => {
   //   fetch('https://api.thecatapi.com/v1/images/search?limit=10')
@@ -40,7 +47,18 @@ function App() {
             <p>{cat.breeds}</p>
           </div>
         ))} */}
-        <Slider cards={catCards} />
+
+
+
+        {/* <Slider cards={catsDataCtx.catsData} /> */}
+
+        {catsDataCtx.loading && 'Loading...'}
+        {!catsDataCtx.loading && catsDataCtx.totalCatsData > 0 && <Slider cards={catsDataCtx.catsData} />}
+
+
+
+
+        {/* <Slider cards={catCards} /> */}
       </main>
     </Layout>
   );
