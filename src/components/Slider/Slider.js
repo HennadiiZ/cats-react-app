@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "./Slider.module.scss"; 
 import Card from "../Card/Card";
+import DataContext from '../../_store/data-context'; 
 
 function Slider(props) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const catsDataCtx = useContext(DataContext); 
   
   const goToPrevSlide = () => {
     setCurrentSlide(
@@ -19,7 +21,16 @@ function Slider(props) {
 
   return (
     <div className={classes.slider}>
-      <Card card={props.cards[currentSlide]} />
+
+
+      {/* <Card card={props.cards[currentSlide]} /> */}
+      {catsDataCtx.loading && (
+        <p>Loading...</p>
+      )}
+
+      {!catsDataCtx.loading && (
+        catsDataCtx.totalCatsData > 0 &&  <Card card={props.cards[currentSlide]} />
+      )}
 
       <div className={classes.slider__buttons}>
         <button onClick={goToPrevSlide}>

@@ -1,4 +1,12 @@
 .slider {
+
+  p {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    min-height: 400px;
+  }
+
   &__buttons {
     display: flex;
     justify-content: center;

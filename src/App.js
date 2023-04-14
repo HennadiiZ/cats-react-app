@@ -29,10 +29,10 @@ function App() {
   return (
     <Layout>
       <main>
-        {/* <Slider cards={catsDataCtx.catsData} /> */}
+        <Slider cards={catsDataCtx.catsData} />
 
-        {catsDataCtx.loading && 'Loading...'}
-        {!catsDataCtx.loading && catsDataCtx.totalCatsData > 0 && <Slider cards={catsDataCtx.catsData} />}
+        {/* {catsDataCtx.loading && 'Loading...'}
+        {!catsDataCtx.loading && catsDataCtx.totalCatsData > 0 && <Slider cards={catsDataCtx.catsData} />} */}
 
         {/* <Slider cards={catCards} /> */}
       </main>
