@@ -22,7 +22,7 @@ export const DataContextProvider = (props) => {
         try {
           const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
           if (!response.ok) {
-            throw new Error("Cities not found");
+            throw new Error("Cats not found");
           }
           const data = await response.json();
         

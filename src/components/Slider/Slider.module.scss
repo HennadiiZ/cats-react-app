@@ -1,9 +1,9 @@
-.sliderContainer {
+.slider {
   margin: 10px;
   margin-top: 50px;
-// width: 90%;
   max-width: 40rem;
-  height: 500px;
+  height: 100%;
+  min-height: 400px;
   background: #F5F5F5;
   box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
   overflow: hidden;
@@ -16,9 +16,18 @@
   border: 1px solid rgb(234, 234, 234);
 }
 
-.imageWrapper {
-  width: 525px;
-  max-width: 100%;
+.card {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgb(234, 234, 234);
+}
+
+.card__image {
+  // width: 525px;
+  // max-width: 100%;
+  width: 100%;
+  max-width: 525px;
   height: 300px;
   position: relative;
   border-radius: 16px;
@@ -36,7 +45,20 @@
   }
 }
 
-.sliderButtons {
+.card__info {
+  // width: 525px;
+  // max-width: 100%;
+  width: 100%;
+  max-width: 525px;
+
+  div {
+    padding: 10px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+.slider__buttons {
 
   button {
     border: none;

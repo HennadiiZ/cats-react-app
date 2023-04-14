@@ -17,15 +17,24 @@ function Slider(props) {
   };
 
   return (
-    <div className={classes.sliderContainer}>
-      <div className={classes.imageWrapper}>
-        <img 
-          src={props.cards[currentSlide].url} 
-          alt="A cat" 
-        />
+    <div className={classes.slider}>
+
+      {/*  */}
+      <div className={classes.card}>
+        <div className={classes.card__image}>
+          <img 
+            src={props.cards[currentSlide].url} 
+            alt="A cat" 
+          />
+        </div>
+        <div className={classes.card__info}>
+          <div>name: jhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbj</div>
+          <div>description: { props.cards[currentSlide].url } jhjfkjhvhbj,jj,kjbjkbbjkbjk jhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,kjbjkbbjkbj</div>
+        </div>
       </div>
+      {/*  */}
       
-      <div className={classes.sliderButtons}>
+      <div className={classes.slider__buttons}>
         <button onClick={goToPrevSlide}>
           Prev
         </button>
