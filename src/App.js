@@ -1,6 +1,7 @@
 import classes from './App.module.scss';
 import { useEffect, useState } from 'react';
 import Slider from "./components/Slider/Slider";
+import Layout from "./layout/Layout";
 
 const DATA = [
   {id: '9o', url: 'https://cdn2.thecatapi.com/images/9o.gif', width: 179, height: 176},
@@ -31,16 +32,17 @@ function App() {
   // }, []);
 
   return (
-    <div>
-      cats app!
-      {/* {catCards.map(cat => (
-        <div key={cat.id}>
-          <img src={cat.url} alt="A cat" />
-          <p>{cat.breeds}</p>
-        </div>
-      ))} */}
-      <Slider cards={catCards} />
-    </div>
+    <Layout>
+      <main>
+        {/* {catCards.map(cat => (
+          <div key={cat.id}>
+            <img src={cat.url} alt="A cat" />
+            <p>{cat.breeds}</p>
+          </div>
+        ))} */}
+        <Slider cards={catCards} />
+      </main>
+    </Layout>
   );
 }
 
