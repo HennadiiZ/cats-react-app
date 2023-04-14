@@ -1,20 +1,21 @@
 .slider {
   // max-width: 40rem;  //
   // width: 100%;  //
-  margin: 10px;
-  margin-top: 50px;
-  height: 100%;
-  min-height: 400px;
-  background: #F5F5F5;
-  box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  border-radius: 16px;
-  border: 1px solid rgb(234, 234, 234);
+
+  // margin: 10px;
+  // margin-top: 50px;
+  // height: 100%;
+  // min-height: 400px;
+  // background: #F5F5F5;
+  // box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  // overflow: hidden;
+  // display: flex;
+  // justify-content: space-between;
+  // flex-direction: column;
+  // align-items: center;
+  // padding: 10px;
+  // border-radius: 16px;
+  // border: 1px solid rgb(234, 234, 234);
 }
 
 .card {
@@ -75,6 +76,8 @@
 
 
 .slider__buttons {
+  display: flex;
+  justify-content: center;
 
   button {
     border: none;

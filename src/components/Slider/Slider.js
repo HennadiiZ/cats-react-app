@@ -19,10 +19,8 @@ function Slider(props) {
 
   return (
     <div className={classes.slider}>
-      {/* <div className={classes.slider}> */}
-
-
-      {/* <div className={classes.card}> */}
+    {/* <div className={classes.slider}> */}
+    <div className={classes.card}>
         <div className={classes.card__image}>
             <img 
               src={props.cards[currentSlide].url} 
@@ -35,20 +33,6 @@ function Slider(props) {
         </div>
   
   
-        <div className={classes.slider__buttons}>
-          <button onClick={goToPrevSlide}>
-            Prev
-          </button>
-          <button onClick={goToNextSlide}>
-            Next
-          </button>
-        </div>
-      {/* </div> */}
-
-
-      {/* <Card card={props.cards[currentSlide]} /> */}
-
-
         {/* <div className={classes.slider__buttons}>
           <button onClick={goToPrevSlide}>
             Prev
@@ -57,6 +41,20 @@ function Slider(props) {
             Next
           </button>
         </div> */}
+      {/* <Card card={props.cards[currentSlide]} /> */}
+    </div>
+
+
+      <Card card={props.cards[currentSlide]} />
+
+        <div className={classes.slider__buttons}>
+          <button onClick={goToPrevSlide}>
+            Prev
+          </button>
+          <button onClick={goToNextSlide}>
+            Next
+          </button>
+        </div> 
     </div>
   );
 }
