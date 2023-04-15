@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { THE_CAT_API } from '../constants/constants';
+import { THE_CAT_API, API_KEY } from '../constants/constants';
 
 const DataContext = React.createContext({
   catsData: [],
   totalCatsData: 0,
   loading: false,
-  // addCats: (newCat) => {},
-  // removeCats: (id) => {},
-  // updateCat: (id) => {}, 
+  replacePhoto: (id) => {},
 });
 
 export const DataContextProvider = (props) => {
@@ -16,11 +14,9 @@ export const DataContextProvider = (props) => {
   
   useEffect(() => {  
     setIsLoading(true);  
-    // fetchCatsData(setCatsData, setIsLoading); 
-
     const fetchCatsData = async () => {
         try {
-          const response = await fetch(THE_CAT_API);
+          const response = await fetch(`${THE_CAT_API}search?limit=10`);
           if (!response.ok) {
             throw new Error("Cats not found");
           }
@@ -40,25 +36,42 @@ export const DataContextProvider = (props) => {
     fetchCatsData(); 
   }, []);
 
-//   const addCatsHandler = (newCat) => {
-//     setCatsData([...catsData, newCat]);
-//   };
-
-//   const removeCatHandler = (itemId) => {
-//     setCatsData((prevCat) => {
-//       return prevCat.filter(item => item.id !== itemId);
-//     }); 
-//   };
-
-//   const updateCatHandler = (itemId, cat) => {};
+  const replacePhoto = async (breed) => {
+    console.log('props', breed.id);
+    console.log('prop', breed); 
+  
+    breed.url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+  
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${THE_CAT_API}${breed.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(breed),
+        headers: {
+          'x-api-key': API_KEY,
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Update failed');
+      }
+  
+      const updatedCardItem = await response.json();
+      const cardIndex = setCatsData.findIndex((card) => card.id === updatedCardItem.id);
+      const updatedCardItems = [...catsData];
+      updatedCardItems[cardIndex] = updatedCardItem;
+  
+      setCatsData(updatedCardItems);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+    setIsLoading(false);
+  };
 
   const context= {
     catsData: catsData, 
     totalCatsData: catsData.length, 
     loading: isLoading,
-    // addCats: addCatsHandler,
-    // removeCats: removeCatHandler,
-    // updateCat: updateCatHandler, 
+    replacePhoto: replacePhoto,
   };
       
   return (
