@@ -5,12 +5,9 @@ import Button from '../../UI/button/Button';
 
 function Card(props) {
   const catsDataCtx = useContext(DataContext); 
-
-
   //
   const [pictureUrl, setPictureUrl] = useState(props.card.url); 
   const [showUpdateButton, setShowUpdateButton] = useState(false);
-
   const card = catsDataCtx?.catsData?.find(item => +item.id ===  +props.cardId);
 
   useEffect(() => {
@@ -18,29 +15,21 @@ function Card(props) {
   }, [props.card.url]);
   //
 
-  const replacePhotoHandler = (e) => { 
-    catsDataCtx.replacePhoto(props.card)
-    // console.log(catsDataCtx.replacePhoto)
-    // console.log('props', props.card.id);
-    console.log(pictureUrl);
-
+  const submitLinkHandler = (e) => { 
     e.preventDefault(); 
-
-
-    e.preventDefault();
+    catsDataCtx.replacePhoto(props.card)
     setShowUpdateButton(false);
     const updatedCard = { ...card, pictureUrl };
-    // cardsCtx.updateCard(card.id, updatedCard);
     catsDataCtx.replacePhoto(props.card, updatedCard);
   };
 
-  const titleChangeHandler = (e) => { 
+  const inputChangeHandler = (e) => { 
     e.preventDefault(); 
     setPictureUrl(e.target.value);
   };
 
 
-  const titleEditHandler = (e) => {
+  const editLinkHandler = (e) => {
     e.preventDefault();
     setShowUpdateButton(true);
   };
@@ -65,37 +54,35 @@ function Card(props) {
       </div>
 
       {/*  */}
-      <form>
-            <div className={classes.input_wrapper}>
-              { showUpdateButton && <input type="text" value={pictureUrl} onChange={titleChangeHandler} />}
-            </div>
-            <div className={classes.btns_wrapper}>
-              { !showUpdateButton && (
-                <button 
-                  type='button' 
-                  className={classes.btn_edit} 
-                  onClick={titleEditHandler}
-                >
-                  Edit
-                </button>
-              )}
-              { showUpdateButton && (
-                <button 
-                  type='button' 
-                  className={classes.btn_edit} 
-                  onClick={replacePhotoHandler}
-                >
-                  Update
-                </button>
-              )}
-            </div>
-          </form>
-      {/*  */}
+        <form>
+          <div className={classes.input__wrapper}>
+            { showUpdateButton && (
+              <input 
+                type="text" 
+                value={pictureUrl} 
+                onChange={inputChangeHandler} 
+              />
+            )}
+            { showUpdateButton && (
+              <Button 
+                type='button'
+                label="Update" 
+                onClick={submitLinkHandler}
+              />
+            )}
+          </div>
 
-      <Button 
-        label="Replace Pic" 
-        onClick={replacePhotoHandler} 
-      />
+          <div>
+            { !showUpdateButton && (
+              <Button 
+                type='button'
+                label=" Edit" 
+                onClick={editLinkHandler} 
+              />
+            )}
+          </div>
+        </form>
+      {/*  */}
     </div>
   );
 }
