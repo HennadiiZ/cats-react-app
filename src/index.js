@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 // import { Provider } from 'react-redux';
 // import store from './_store/data-context';
 import { DataContextProvider } from './_store/data-context';
+// import './setupProxy'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

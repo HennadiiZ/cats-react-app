@@ -16,7 +16,9 @@ export const DataContextProvider = (props) => {
     setIsLoading(true);  
     const fetchCatsData = async () => {
         try {
-          const response = await fetch(`${THE_CAT_API}search?limit=10`);
+          // const response = await fetch(`${THE_CAT_API}search?limit=10`);
+          // const response = await fetch('https://api.thecatapi.com/v1/breeds');
+          const response = await fetch(`${THE_CAT_API}`);
           if (!response.ok) {
             throw new Error("Cats not found");
           }
@@ -74,36 +76,41 @@ export const DataContextProvider = (props) => {
 
 
 
-  const replacePhoto = async (breed) => {
-    console.log('props', breed.id);
-    console.log('prop', breed); 
+  const replacePhoto = async (breedId) => {
+    const card = catsData?.find(item => +item.id ===  +breedId);
+    console.log('id ', breedId);
+    console.log('card', card); 
   
     // breed.url = 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
   
-    try {
-      setIsLoading(true);
-      const response = await fetch(`${THE_CAT_API}${breed.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(breed),
-        headers: {
-          'x-api-key': API_KEY,
-        },
-      });
-      if (!response.ok) {
-        throw new Error('Update failed');
-      }
+    // try {
+    //   setIsLoading(true);
+    //  // const response = await fetch(`${THE_CAT_API}${breedId}`, {
+    // const response = await fetch(https://api.thecatapi.com/v1/images/search?breed_ids=${currentBreed.id}, {
+    //     method: 'PUT',
+    //     body: JSON.stringify(card),
+    //     headers: {
+    //       'x-api-key': API_KEY,
+    //     },
+    //   });
+    //   if (!response.ok) {
+    //     throw new Error('Update failed');
+    //   }
   
-      const updatedCardItem = await response.json();
-      const cardIndex = setCatsData.findIndex((card) => card.id === updatedCardItem.id);
-      const updatedCardItems = [...catsData];
-      updatedCardItems[cardIndex] = updatedCardItem;
+    //   const updatedCardItem = await response.json();
+    //   const cardIndex = setCatsData.findIndex((card) => card.id === updatedCardItem.id);
+    //   const updatedCardItems = [...catsData];
+    //   updatedCardItems[cardIndex] = updatedCardItem;
   
-      setCatsData(updatedCardItems);
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
-    setIsLoading(false);
+    //   setCatsData(updatedCardItems);
+    // } catch (error) {
+    //   console.error('Error:', error.message);
+    // }
+    // setIsLoading(false);
   };
+
+
+
 
   const context= {
     catsData: catsData, 
