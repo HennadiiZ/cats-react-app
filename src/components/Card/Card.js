@@ -3,15 +3,15 @@ import classes from "./Card.module.scss";
 import DataContext from "../../_store/data-context";
 import { useContext, useState, useEffect } from "react";
 import Button from "../../UI/button/Button";
-import { API_KEY } from "../../constants/constants";
+import { API_KEY, PICS_API } from "../../constants/constants";
 
 function Card(props) {
-  const catsDataCtx = useContext(DataContext);
+//   const catsDataCtx = useContext(DataContext);
   const [pictureUrl, setPictureUrl] = useState(props.card.url);
 
   async function getRandomImage() {
     const { data } = await axios.get(
-      `https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=&api_key=${API_KEY}`
+      `${PICS_API}${API_KEY}`
     );
     setPictureUrl(data[0].url);
     return data;
