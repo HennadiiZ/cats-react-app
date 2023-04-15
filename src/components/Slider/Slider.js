@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
-import classes from "./Slider.module.scss"; 
-import Card from "../Card/Card";
+import React, { useState, useContext } from 'react';
+import classes from './Slider.module.scss'; 
+import Card from '../Card/Card';
 import DataContext from '../../_store/data-context'; 
 import Spinner from '../../UI/spinner/Spinner';
+import Button from '../../UI/button/Button';
 
 function Slider(props) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,7 +22,7 @@ function Slider(props) {
   };
 
   return (
-    <div className={classes.slider}>
+    <section className={classes.slider}>
 
       {catsDataCtx.loading && (
         <div className={classes.slider__spinner}><Spinner/></div>
@@ -32,15 +33,16 @@ function Slider(props) {
       )}
 
       <div className={classes.slider__buttons}>
-        <button onClick={goToPrevSlide}>
-          Prev
-        </button>
-        <button onClick={goToNextSlide}>
-          Next
-        </button>
+        <Button 
+         label="Prev" 
+         onClick={goToPrevSlide} 
+        />
+        <Button 
+         label="Next" 
+         onClick={goToNextSlide} 
+        />
       </div> 
-
-    </div>
+    </section>
   );
 }
 

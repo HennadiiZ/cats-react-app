@@ -1,9 +1,7 @@
 import classes from './App.module.scss';
-import { useEffect, useState, useContext } from 'react';
-import Slider from "./components/Slider/Slider";
-import Layout from "./layout/Layout";
-
-// import { useContext } from 'react';
+import { useContext } from 'react';
+import Slider from './components/Slider/Slider';
+import Layout from "./UI/layout/Layout";
 import DataContext from './_store/data-context'; 
 
 
@@ -23,7 +21,6 @@ import DataContext from './_store/data-context';
 function App() {
   // const [catCards, setCatCards] = useState(DATA);
   const catsDataCtx = useContext(DataContext); 
-
   console.log(catsDataCtx.catsData);
 
   return (

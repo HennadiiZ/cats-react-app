@@ -1,14 +1,12 @@
-import classes from "./Card.module.scss"; 
+import classes from './Card.module.scss'; 
 import DataContext from '../../_store/data-context'; 
-import { useContext } from "react";
-
+import { useContext } from 'react';
+import Button from '../../UI/button/Button';
 
 function Card(props) {
-
   const catsDataCtx = useContext(DataContext); 
 
   const replacePhotoHandler = () => { 
-
     catsDataCtx.replacePhoto(props.card)
     // console.log(catsDataCtx.replacePhoto)
     console.log('props', props.card.id);
@@ -24,19 +22,18 @@ function Card(props) {
       </div>
       <div className={classes.card__info}>
         <div>
-          Name: jhjfkjhvhbj,jj,kjbjkbbjkbjjhjfkjhvhbj,jj,
+          Name: 
         </div>
         <div>
-          Description: { props.card.url } jhjfkjhvhbj, 
+          Description: { props.card.url }
           {/* Description: { props?.card?.breeds[0]?.name } jhjfkjhvhbj, */}
         </div>
       </div>
 
-
-        <button onClick={replacePhotoHandler}>
-          Replace Pic
-        </button>
-
+       <Button 
+         label="Replace Pic" 
+         onClick={replacePhotoHandler} 
+        />
     </div>
   );
 }

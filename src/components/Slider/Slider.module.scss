@@ -10,31 +10,5 @@
   &__buttons {
     display: flex;
     justify-content: center;
-  
-    button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 10px;
-      min-width: 80px;
-      height: 40px;
-      background: linear-gradient(180deg, #9B7EFA 0%, #7E5AE1 100%);
-      border-radius: 15px;
-      font-family: 'Noto Sans';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      text-align: center;
-      color: #FFFFFF;
-      margin-right: 5px;
-  
-      &:last-child {
-        margin-right: 0px !important;
-      }
-    }
-    
-    button:hover {
-      background: linear-gradient(180deg, #ac98ee 0%, #745cb6 100%);
-    }
   }
 }
