@@ -1,6 +1,6 @@
 .card {
   margin: 10px;
-  margin-top: 50px;
+  margin-top: 22px;
   height: 100%;
   min-height: 400px;
   background: #F5F5F5;
@@ -37,11 +37,24 @@
   &__info {
     width: 100%;
     max-width: 525px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
   
     div {
-      padding: 10px 0;
+      padding: 17px 0;
       word-wrap: break-word;
       overflow-wrap: break-word;
     }
+  }
+
+  &__divider {
+    margin: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-image-source: linear-gradient(90deg, #EDEDED 68.49%, rgba(237, 237, 237, 0) 92.37%);
+    border-image-slice: 1;
   }
 }

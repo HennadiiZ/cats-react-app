@@ -24,16 +24,17 @@ function Card(props) {
         <div>
           Name: 
         </div>
+        <hr className={classes.card__divider} />
         <div>
           Description: { props.card.url }
           {/* Description: { props?.card?.breeds[0]?.name } jhjfkjhvhbj, */}
         </div>
       </div>
 
-       <Button 
-         label="Replace Pic" 
-         onClick={replacePhotoHandler} 
-        />
+      <Button 
+        label="Replace Pic" 
+        onClick={replacePhotoHandler} 
+      />
     </div>
   );
 }

@@ -23,6 +23,7 @@ function Slider(props) {
 
   return (
     <section className={classes.slider}>
+      <h1>The Cat Super App</h1>
 
       {catsDataCtx.loading && (
         <div className={classes.slider__spinner}><Spinner/></div>
