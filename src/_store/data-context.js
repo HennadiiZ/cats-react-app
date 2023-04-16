@@ -170,3 +170,4 @@ export const fetchCatsList = () => async (dispatch) => {
     dispatch(catsSlice.actions.setIsLoading(false));
   }
 };
+//
