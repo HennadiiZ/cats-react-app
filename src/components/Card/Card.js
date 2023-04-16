@@ -1,7 +1,9 @@
 import axios from "axios";
 import classes from "./Card.module.scss";
-import DataContext from "../../_store/data-context";
-import { useContext, useState, useEffect } from "react";
+// import DataContext from "../../_store/data-context";
+// import { useContext, useState, useEffect } from "react";
+
+import { useState, useEffect } from "react";
 import Button from "../../UI/button/Button";
 import { API_KEY, PICS_API } from "../../constants/constants";
 
